@@ -5,6 +5,7 @@
  */
 package net.htlgrieskirchen.pos3.pcp;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Producer /* implement this */ {
@@ -16,14 +17,38 @@ public class Producer /* implement this */ {
     private final int numberOfItems;
     
     public Producer(String name, Storage storage, int sleepTime, int numberOfItems) {
-       // implement this
+       this.name = name;
+       this.storage = storage;
+       this.sleepTime = sleepTime;
+       this.numberOfItems = numberOfItems;
+       this.sent = new LinkedList<>();
     }
  
-    // implement this
+    public Producer run(){
+        for(int i =0; i < numberOfItems; i++){
+
+            
+
+
+
+        }
+    }
+
+
 
     public List<Integer> getSent() {
-        // implement this
-        return null;
+        return sent;
     }
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public Storage getStorage() {
+        return storage;
+    }
+
+    public int getSleepTime() {
+        return sleepTime;
+    }
 }
