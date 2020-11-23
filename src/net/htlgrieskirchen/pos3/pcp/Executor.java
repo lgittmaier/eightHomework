@@ -5,10 +5,7 @@
  */
 package net.htlgrieskirchen.pos3.pcp;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  *
@@ -28,12 +25,12 @@ public class Executor {
         Consumer c1 = new Consumer("C1", s, t1);
         Consumer c2 = new Consumer("C2", s, t2);
 
-        threadPool.execute(c1);
-        threadPool.execute(c2);
+        threadPool.execute((Runnable) c1);
+        threadPool.execute((Runnable) c2);
 
         Producer p = new Producer("P", s, t3, t4);
        
-        Future producerStatus1 = threadPool.submit(p);
+        Future producerStatus1 = threadPool.submit((Runnable) p);
         producerStatus1.get();
 
         threadPool.shutdown();

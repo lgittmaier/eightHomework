@@ -24,14 +24,20 @@ public class Producer /* implement this */ {
        this.sent = new LinkedList<>();
     }
  
-    public Producer run(){
-        for(int i =0; i < numberOfItems; i++){
-
-            
-
-
+    public void run(){
+        for(int i =0; i <= numberOfItems; i++){
+            if(!storage.isProductionComplete()){
+                sent.add(i);
+            }else{
+                getSleepTime();
+                sent.add(i);
+            }
+            if(storage.isProductionComplete()){
+                storage.isProductionComplete();
+            }
 
         }
+
     }
 
 

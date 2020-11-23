@@ -24,7 +24,10 @@ public class Storage {
         this.overflowCounter = overflowCounter;
         this.productionComplete = productionComplete;
     }
-    
+
+
+
+
     public synchronized boolean put(Integer data) throws InterruptedException {
         boolean erg = false;
         if(queue.remainingCapacity() > 0){

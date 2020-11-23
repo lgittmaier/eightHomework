@@ -5,6 +5,7 @@
  */
 package net.htlgrieskirchen.pos3.pcp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,14 +18,16 @@ public class Consumer /* implement this */ {
     private boolean running;
     
     public Consumer(String name, Storage storage, int sleepTime) {
-        // implement this
+        this.name = name;
+        this.storage = storage;
+        this.sleepTime = sleepTime;
+        this.received = new ArrayList<>();
     }
- 
-    // implement this
+
 
     public List<Integer> getReceived() {
-        // implement this
-        return null;
+
+        return this.received;
     }
 }
 
